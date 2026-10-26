@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <title>MIB Result</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <header class="popup-head">
+    <span class="dot" id="dot"></span>
+    <strong>MIB Result</strong>
+    <span class="progress" id="progress"></span>
+  </header>
+
+  <section class="popup-body">
+    <p class="status" id="status">Загрузка…</p>
+    <p class="pinfl" id="pinfl"></p>
+    <p class="error" id="error" hidden></p>
+
+    <dl class="stats">
+      <div><dt>Найдено</dt><dd id="stat-found">0</dd></div>
+      <div><dt>Не найдено</dt><dd id="stat-not-found">0</dd></div>
+      <div><dt>Ошибка разбора</dt><dd id="stat-parse-error">0</dd></div>
+      <div><dt>Капча повтор</dt><dd id="stat-captcha">0</dd></div>
+    </dl>
+
+    <p class="outbox" id="outbox" hidden></p>
+    <button type="button" id="retry-failed" class="btn" hidden>Отправить отклоненные заново</button>
+  </section>
+
+  <footer class="popup-actions">
+    <button type="button" id="toggle" class="btn btn--primary">Начать</button>
+    <button type="button" id="open-mib" class="btn">mib.uz</button>
+    <button type="button" id="open-options" class="btn">Настройки</button>
+    <button type="button" id="reset-stats" class="btn" title="Обнулить счетчики">Сброс</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

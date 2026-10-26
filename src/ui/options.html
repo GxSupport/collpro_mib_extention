@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>MIB Result — настройки</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <h1>MIB Result — настройки</h1>
+
+  <section class="card">
+    <h2>Сервер и вход</h2>
+
+    <label class="field">
+      <span>Адрес API CollPro</span>
+      <input type="url" id="api-base" placeholder="https://api.trackcoll.uz/api/mib" autocomplete="off">
+      <small>К этому адресу добавляются: <code>/login</code>, <code>/next</code>, <code>/result</code>.</small>
+    </label>
+
+    <div class="row">
+      <label class="field">
+        <span>Номер телефона</span>
+        <input type="tel" id="login" placeholder="998901234567" autocomplete="username">
+        <small>Аккаунт CollPro — по номеру телефона, не по email.</small>
+      </label>
+      <label class="field">
+        <span>Пароль</span>
+        <input type="password" id="password" autocomplete="current-password">
+      </label>
+    </div>
+
+    <div class="actions">
+      <button type="button" id="do-login" class="btn btn--primary">Войти</button>
+      <button type="button" id="do-logout" class="btn">Выйти</button>
+      <span class="hint" id="auth-status"></span>
+    </div>
+
+    <p class="note">
+      Пароль не сохраняется — берется только токен, он хранится в памяти браузера.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Режим работы</h2>
+
+    <div class="row">
+      <label class="field">
+        <span>Пауза между поисками (мс)</span>
+        <input type="number" id="delay-ms" min="0" step="250">
+        <small>Ввод капчи сам дает паузу, поэтому 1000 мс достаточно.</small>
+      </label>
+
+      <label class="field">
+        <span>Лимит ожидания ответа (мс)</span>
+        <input type="number" id="result-timeout" min="5000" step="1000">
+      </label>
+    </div>
+
+    <div class="row">
+      <label class="field">
+        <span>Число повторных попыток</span>
+        <input type="number" id="max-retries" min="1" max="20">
+      </label>
+
+      <label class="field field--check">
+        <input type="checkbox" id="compress-html">
+        <span>Сжимать raw HTML в gzip (~400 КБ → ~30 КБ)</span>
+      </label>
+    </div>
+
+    <div class="row">
+      <label class="field field--check">
+        <input type="checkbox" id="auto-submit">
+        <span>Нажимать "Қидириш" автоматически после ввода капчи</span>
+      </label>
+
+      <label class="field">
+        <span>Ожидание однозначного ответа (мс)</span>
+        <input type="number" id="auto-submit-delay" min="0" step="500">
+        <small>Двузначный ответ отправляется сразу. Enter работает всегда.</small>
+      </label>
+    </div>
+
+    <div class="row">
+      <label class="field field--check">
+        <input type="checkbox" id="pause-on-parse-error">
+        <span>Останавливаться на странице при ошибке разбора (чтобы оператор увидел)</span>
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Селекторы</h2>
+    <p class="note">
+      Если DOM mib.uz изменится, правится здесь — код трогать не нужно.
+      Wicket-<code>id</code> нестабильны, используйте только <code>name=</code> и CSS-классы.
+    </p>
+    <div id="selectors" class="selectors"></div>
+    <div class="actions">
+      <button type="button" id="reset-selectors" class="btn">Вернуть стандартные</button>
+    </div>
+  </section>
+
+  <div class="sticky-actions">
+    <button type="button" id="save" class="btn btn--primary">Сохранить</button>
+    <span class="hint" id="save-status"></span>
+  </div>
+
+  <script src="../lib/config.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

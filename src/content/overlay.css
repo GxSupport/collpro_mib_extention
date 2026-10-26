@@ -1,0 +1,133 @@
+/* Operator paneli. mib.uz stillari bilan to'qnashmasligi uchun hamma qiymat aniq. */
+
+.mib-ext-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2147483647;
+  width: 260px;
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #1a1a2e;
+  overflow: hidden;
+}
+
+.mib-ext-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #14183c;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.mib-ext-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8b8fa8;
+  flex: 0 0 auto;
+}
+
+.mib-ext-panel[data-tone="waiting"] .mib-ext-dot { background: #f5a623; }
+.mib-ext-panel[data-tone="busy"]    .mib-ext-dot { background: #4a90d9; }
+.mib-ext-panel[data-tone="error"]   .mib-ext-dot { background: #d0021b; }
+.mib-ext-panel[data-tone="done"]    .mib-ext-dot { background: #37a04a; }
+
+.mib-ext-title { flex: 1 1 auto; }
+
+.mib-ext-progress {
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.mib-ext-body { padding: 12px; }
+
+.mib-ext-status { margin-bottom: 6px; }
+
+.mib-ext-pinfl {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.mib-ext-name {
+  color: #55597a;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.mib-ext-error {
+  margin-top: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #fdecee;
+  color: #a3021a;
+  font-size: 12px;
+  word-break: break-word;
+}
+
+.mib-ext-stats {
+  padding: 0 12px 10px;
+  color: #55597a;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.mib-ext-actions {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px;
+  border-top: 1px solid #e6e7ee;
+}
+
+.mib-ext-btn {
+  flex: 1 1 auto;
+  padding: 7px 10px;
+  border: 1px solid #c9cbd8;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #1a1a2e;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.mib-ext-btn:hover { background: #f2f3f8; }
+
+.mib-ext-btn--primary {
+  background: #14183c;
+  border-color: #14183c;
+  color: #ffffff;
+}
+
+.mib-ext-btn--primary:hover { background: #23295e; }
+
+.mib-ext-btn--danger {
+  background: #d0021b;
+  border-color: #d0021b;
+  color: #ffffff;
+}
+
+.mib-ext-btn--danger:hover { background: #ae0116; }
+
+/* Captcha maydoniga e'tibor tortish */
+.mib-ext-highlight {
+  outline: 3px solid #f5a623 !important;
+  outline-offset: 1px;
+  animation: mib-ext-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes mib-ext-pulse {
+  0%, 100% { outline-color: #f5a623; }
+  50%      { outline-color: rgba(245, 166, 35, 0.35); }
+}
